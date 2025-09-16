@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Calendar, User, Phone, Heart, Shield } from "lucide-react";
 
-// 🟢 Patient data type
 type Patient = {
   id: string;
   name: string;
@@ -15,9 +14,8 @@ type Patient = {
   insurance: string;
 };
 
-// 🟢 Mock API fetch (replace this with real API later)
 async function fetchPatient(): Promise<Patient> {
-  // Example placeholder - will be replaced with backend API
+
   return {
     id: "1",
     name: "Jessica Taylor",
@@ -33,7 +31,6 @@ async function fetchPatient(): Promise<Patient> {
 export default function PatientProfile() {
   const [patient, setPatient] = useState<Patient | null>(null);
 
-  // 🟢 Fetch patient when component mounts
   useEffect(() => {
     const loadPatient = async () => {
       const data = await fetchPatient();
@@ -52,17 +49,14 @@ export default function PatientProfile() {
 
   return (
     <div className="w-80 bg-white rounded-2xl shadow p-6 flex flex-col items-center mt-6">
-      {/* Profile Image */}
       <img
         src={patient.avatar}
         alt={patient.name}
         className="w-[200px] h-[200px] rounded-full object-cover mb-4"
       />
 
-      {/* Name */}
       <h2 className="text-lg font-bold text-[#072635]">{patient.name}</h2>
 
-      {/* Info List */}
       <div className="w-full mt-5 space-y-4 text-sm text-gray-700">
         <div className="flex items-start gap-3">
           <Calendar className="text-teal-500" size={18} />
@@ -105,7 +99,6 @@ export default function PatientProfile() {
         </div>
       </div>
 
-      {/* Button */}
       <button className="mt-6 w-[220px] h-[41px] bg-teal-500 text-black text-[11px] py-2 rounded-full">
         Show All Information
       </button>
