@@ -1,11 +1,7 @@
-// src/services/api.ts
-
 const BASE_URL = "https://fedskillstest.coalitiontechnologies.workers.dev";
 
-// Encode username:password → base64
 const basicAuth = btoa("coalition:skills-test");
 
-// Generic request function
 async function request<T>(): Promise<T> {
   const res = await fetch(BASE_URL, {
     headers: {
@@ -21,7 +17,6 @@ async function request<T>(): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-// Types (based on Postman response fields)
 export interface Patient {
   name: string;
   gender: string;
@@ -34,10 +29,10 @@ export interface Patient {
   diagnosis_history: Array<{
     year: number;
     month: string;
-    blood_pressure: { systolic: { value: number }, diastolic: { value: number } };
-    heart_rate: { value: number };
-    respiratory_rate: { value: number };
-    temperature: { value: number };
+    blood_pressure: { systolic: { value: number; levels: string }, diastolic: { value: number; levels: string } };
+    heart_rate: { value: number; levels: string };
+    respiratory_rate: { value: number; levels: string };
+    temperature: { value: number; levels: string };
   }>;
   diagnostic_list: Array<{
     name: string;
@@ -47,7 +42,6 @@ export interface Patient {
   lab_results: string[];
 }
 
-// Get only Jessica Taylor
 export async function getJessica(): Promise<Patient | undefined> {
   const patients = await request<Patient[]>();
   return patients.find((p) => p.name === "Jessica Taylor");

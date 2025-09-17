@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   LineChart,
   Line,
@@ -8,24 +8,42 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-// import { chevron } from "lucide-react";
+
 import "./App.css";
 import TopBar from "./components/topbar";
 import PatientSidebar from "./components/patientSidebar";
+import DiagnosisHistory from "./components/diagnosisHistory";
+import { getJessica } from "./services/api";
+import type { Patient } from "./services/api";
 import PatientProfile from "./components/patientProfile";
 import RespiratoryImg from "./assets/img/respiratory.png";
 import TemperatureImg from "./assets/img/temperature.png";
 import HeartBPMImg from "./assets/img/HeartBPM.png";
 
 function App() {
-  const bloodPressureData = [
-    { month: "Oct 2023", systolic: 120, diastolic: 80 },
-    { month: "Nov 2023", systolic: 135, diastolic: 85 },
-    { month: "Dec 2023", systolic: 150, diastolic: 90 },
-    { month: "Jan 2024", systolic: 140, diastolic: 82 },
-    { month: "Feb 2024", systolic: 155, diastolic: 75 },
-    { month: "Mar 2024", systolic: 160, diastolic: 78 },
-  ];
+    const [patient, setPatient] = useState<Patient | null>(null);
+    const [list, setList] = useState<any[]>([]);
+
+
+    useEffect(() => {
+        getJessica().then(setPatient).catch(console.error);
+    }, []);
+
+    const mapped_history = patient?.diagnosis_history[0];
+   
+    useEffect(() => {
+        (async () => {
+        try {
+            const patient: Patient | undefined = await getJessica();
+            if (patient?.diagnostic_list) {
+            setList(patient.diagnostic_list);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        })();
+    }, []);
+
 
   return (
     <>
@@ -40,137 +58,122 @@ function App() {
           <PatientSidebar />
 
           {/* Main Content */}
-          <main className="flex-1 p-6 overflow-y-auto">
+          <main className="flex-1 p-4 overflow-y-auto">
             {/* Diagnosis History */}
-            <section className="bg-white rounded-2xl shadow p-6 mb-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="font-semibold text-lg text-black">Diagnosis History</h2>
-                <select className="text-sm border rounded-lg px-2 py-1">
-                  <option>Last 6 months</option>
-                  <option>Last 12 months</option>
-                </select>
-              </div>
 
-              {/* Chart */}
-              <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={bloodPressureData}>
-                    <XAxis dataKey="month" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Line
-                      type="monotone"
-                      dataKey="systolic"
-                      stroke="#EC4899"
-                      strokeWidth={2}
-                      dot={{ r: 2 }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="diastolic"
-                      stroke="#6366F1"
-                      strokeWidth={2}
-                      dot={{ r: 4}}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            </section>
+            <div className="bg-white p-4 rounded-xl">
 
-            {/* Stats */}
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+            <div className="mb-4">
+                <DiagnosisHistory />
+
+            </div>
+
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-[#E0F3FA] rounded-2xl shadow p-[12px]">
                 <span className="bg-white">
                   <img src={RespiratoryImg}  alt={RespiratoryImg} />
                 </span>
                 <h3 className="text-gray-500 text-[16px]">Respiratory Rate</h3>
 
-                <p className="text-2xl font-bold text-black">20 bpm</p>
-                <span className="text-sm text-black">Normal</span>
+                <p className="text-2xl font-bold text-black">{mapped_history?.respiratory_rate?.value ?? "_"} bpm</p>
+                <span className="text-sm text-black">{mapped_history?.respiratory_rate?.levels ?? "_"  }</span>
               </div>
               <div className="bg-[#FFE6E9] rounded-2xl shadow p-[12px] ">
                 <span className="bg-white">
                   <img src={TemperatureImg} alt={TemperatureImg} />
                 </span>
                 <h3 className="text-gray-500">Temperature</h3>
-                <p className="text-2xl font-bold text-black">98.6°F</p>
-                <span className="text-sm text-black">Normal</span>
+                <p className="text-2xl font-bold text-black">{mapped_history?.temperature?.value ?? "_"} °F</p>
+                <span className="text-sm text-black">{mapped_history?.temperature?.levels ?? "_"}</span>
               </div>
-              <div className="bg-white rounded-2xl shadow p-6">
+              <div className="bg-[#FFE6F1] rounded-2xl shadow p-[12px]">
                 <span>
                   <img src={HeartBPMImg} alt={HeartBPMImg} />
                 </span>
                 <h3 className="text-gray-500">Heart Rate</h3>
-                <p className="text-2xl font-bold text-black">78 bpm</p>
-                <span className="text-sm text-black">Lower than average</span>
+                <p className="text-2xl font-bold text-black">{mapped_history?.heart_rate?.value ?? "_"} bpm</p>
+                <span className="text-sm text-black">{mapped_history?.heart_rate?.levels ?? "_"}</span>
               </div>
-              </section>
+            </section>
+            </div>
+            {/* <section className="bg-white rounded-2xl shadow p-6 mt-4">
+                <h2 className="font-semibold text-lg mb-4">Diagnostic List</h2>
+                <table className="w-full text-sm">
+                    <thead className="bg-[#F6F7F8] rounded-full">
+                    <tr>
+                        <th className="text-left p-2 text-[#072635]">Problem/Diagnosis</th>
+                        <th className="text-left p-2 text-[#072635]">Description</th>
+                        <th className="text-left p-2 text-[#072635]">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr className="border-b">
+                        <td className="p-2 text-[#072635]">{patient.diagnostic_list?.name}</td>
+                        <td className="p-2 text-[#072635]">High Systolic</td>
+                        <td className="p-2 text-red-500">Critical</td>
+                    </tr>
+                    <tr>
+                        <td className="p-2">Heart Rate</td>
+                        <td className="p-2">Below Average</td>
+                        <td className="p-2 text-yellow-500">Warning</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section> */}
 
-            {/* Diagnostic List */}
-            {/* <section className="bg-white rounded-2xl shadow p-6">
-          <h2 className="font-semibold text-lg mb-4">Diagnostic List</h2>
-          <table className="w-full text-sm">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="text-left p-2">Problem/Diagnosis</th>
-                <th className="text-left p-2">Description</th>
-                <th className="text-left p-2">Status</th>
+              <div className="bg-white rounded-2xl shadow p-6 mt-6">
+      <h2 className="font-semibold text-lg mb-4 text-[#072635]">
+        Diagnostic List
+      </h2>
+
+      <table className="w-full text-sm">
+        <thead className="bg-[#F6F7F8]">
+          <tr>
+            <th className="text-left p-2 text-[#072635] rounded-l-full">Problem/Diagnosis</th>
+            <th className="text-left p-2 text-[#072635]">Description</th>
+            <th className="text-left p-2 text-[#072635] rounded-r-full">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.length > 0 ? (
+            list.map((item, idx) => (
+              <tr key={idx} className="border-b last:border-0">
+                <td className="p-2 text-[#072635] text-xs">{item.name}</td>
+                <td className="p-2 text-[#072635] text-xs">{item.description}</td>
+                <td
+                  className={`p-2 font-medium text-xs ${
+                    item.status.toLowerCase().includes("critical")
+                      ? "text-red-500"
+                      : item.status.toLowerCase().includes("warning")
+                      ? "text-yellow-500"
+                      : "text-green-600"
+                  }`}
+                >
+                  {item.status}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b">
-                <td className="p-2">Blood Pressure</td>
-                <td className="p-2">High Systolic</td>
-                <td className="p-2 text-red-500">Critical</td>
-              </tr>
-              <tr>
-                <td className="p-2">Heart Rate</td>
-                <td className="p-2">Below Average</td>
-                <td className="p-2 text-yellow-500">Warning</td>
-              </tr>
-            </tbody>
-          </table>
-        </section> */}
+            ))
+          ) : (
+            <tr>
+              <td colSpan={3} className="p-4 text-center text-gray-400">
+                No diagnostics available
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+          {/* </div> */}
           </main>
+          <div>
+            <PatientProfile />
 
-          <PatientProfile />
+
+          </div>
+
         </div>
 
-        {/* Right Sidebar - Profile */}
-        {/* <aside className="w-full md:w-1/4 bg-white border-l p-6">
-        <div className="text-center">
-          <img
-            src="/avatar.jpg"
-            alt="patient"
-            className="w-24 h-24 rounded-full mx-auto mb-4"
-          />
-          <h2 className="text-xl font-semibold">Jessica Taylor</h2>
-          <p className="text-sm text-gray-500">Female, 28</p>
-        </div>
-
-        <div className="mt-6 space-y-3 text-sm">
-          <p>
-            <span className="font-medium">DOB:</span> Aug 23, 1996
-          </p>
-          <p>
-            <span className="font-medium">Gender:</span> Female
-          </p>
-          <p>
-            <span className="font-medium">Contact:</span> (415) 555-1234
-          </p>
-          <p>
-            <span className="font-medium">Emergency:</span> (415) 555-5678
-          </p>
-          <p>
-            <span className="font-medium">Insurance:</span> Sunrise Health Assurance
-          </p>
-        </div>
-
-        <button className="w-full mt-6 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 rounded-lg">
-          Show All Information
-        </button>
-      </aside> */}
       </div>
     </>
   );

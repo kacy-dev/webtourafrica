@@ -16,8 +16,11 @@ const patients = [
 
 export default function PatientSidebar() {
   return (
-    <aside className="w-72 bg-white h-screen flex flex-col mt-6 rounded-lg">
-      {/* Header */}
+    <aside className="w-72 bg-white flex flex-col mt-6 rounded-lg">
+      
+
+       <div className="h-auto w-72 bg-white flex flex-col mt-6 rounded-lg">
+
       <div className="flex items-center justify-between px-4 py-3 mt-3">
         <h2 className="text-lg font-semibold text-black">Patients</h2>
         <Search size={18} className="text-gray-500 cursor-pointer" />
@@ -51,6 +54,10 @@ export default function PatientSidebar() {
            
           </div>
         ))}
+      </div>
+
+     
+
       </div>
     </aside>
   );
