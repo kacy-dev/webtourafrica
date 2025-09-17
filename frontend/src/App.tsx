@@ -48,7 +48,7 @@ function App() {
     <>
       <div className="min-h-screen bg-gray-50 w-full py-4 px-4">
           <TopBar />
-        <div className="flex">
+        <div className="flex mt-16">
           <PatientSidebar />
           <div className="flex-1 p-4 overflow-y-auto">
             <div className="bg-white p-4 rounded-xl">

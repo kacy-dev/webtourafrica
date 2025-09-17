@@ -1,5 +1,6 @@
-import react from "react";
+import React, { useState, useEffect } from "react";
 import {Search, MoreHorizontal, MoreVertical } from "lucide-react";
+
 
 const patients = [
   { id: 1, name: "Emily Carter", gender: "Female", age: 18, img: "https://i.pravatar.cc/40?img=1", badge: "299" },
@@ -12,12 +13,86 @@ const patients = [
   { id: 8, name: "Tyler Davis", gender: "Male", age: 19, img: "https://i.pravatar.cc/40?img=8" },
   { id: 9, name: "Kevin Anderson", gender: "Male", age: 30, img: "https://i.pravatar.cc/40?img=9" },
   { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+  { id: 10, name: "Dylan Thompson", gender: "Male", age: 36, img: "https://i.pravatar.cc/40?img=10" },
+
+  
 ];
 
 export default function PatientSidebar() {
+
   return (
     <aside className="w-72 bg-white flex flex-col mt-4 rounded-lg">
-       <div className="h-auto w-72 bg-white flex flex-col mt-6 rounded-lg">
+       <div className="h-screen w-72 bg-white flex flex-col mt-6 rounded-lg">
       <div className="flex items-center justify-between px-4 py-3 mt-3">
         <h2 className="text-lg font-semibold text-black">Patients</h2>
         <Search size={18} className="text-gray-500 cursor-pointer" />
