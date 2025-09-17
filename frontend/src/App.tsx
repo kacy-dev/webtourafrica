@@ -25,7 +25,6 @@ function App() {
     const [patient, setPatient] = useState<Patient | null>(null);
     const [list, setList] = useState<any[]>([]);
 
-
     useEffect(() => {
         getJessica().then(setPatient).catch(console.error);
     }, []);
@@ -44,7 +43,6 @@ function App() {
         }
         })();
     }, []);
-
 
   return (
     <>
