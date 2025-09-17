@@ -16,7 +16,7 @@ const patients = [
 
 export default function PatientSidebar() {
   return (
-    <aside className="w-72 bg-white border-r h-screen flex flex-col mt-6 rounded-lg">
+    <aside className="w-72 bg-white h-screen flex flex-col mt-6 rounded-lg">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 mt-3">
         <h2 className="text-lg font-semibold text-black">Patients</h2>

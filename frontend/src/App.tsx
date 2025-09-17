@@ -8,10 +8,14 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+// import { chevron } from "lucide-react";
 import "./App.css";
 import TopBar from "./components/topbar";
 import PatientSidebar from "./components/patientSidebar";
 import PatientProfile from "./components/patientProfile";
+import RespiratoryImg from "./assets/img/respiratory.png";
+import TemperatureImg from "./assets/img/temperature.png";
+import HeartBPMImg from "./assets/img/HeartBPM.png";
 
 function App() {
   const bloodPressureData = [
@@ -59,15 +63,15 @@ function App() {
                       type="monotone"
                       dataKey="systolic"
                       stroke="#EC4899"
-                      strokeWidth={3}
-                      dot={{ r: 5 }}
+                      strokeWidth={2}
+                      dot={{ r: 2 }}
                     />
                     <Line
                       type="monotone"
                       dataKey="diastolic"
                       stroke="#6366F1"
-                      strokeWidth={3}
-                      dot={{ r: 5 }}
+                      strokeWidth={2}
+                      dot={{ r: 4}}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -76,22 +80,32 @@ function App() {
 
             {/* Stats */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-white rounded-2xl shadow p-6 text-center">
-                <h3 className="text-gray-500">Respiratory Rate</h3>
-                <p className="text-2xl font-bold">20 bpm</p>
-                <span className="text-sm text-green-500">Normal</span>
+              <div className="bg-[#E0F3FA] rounded-2xl shadow p-[12px]">
+                <span className="bg-white">
+                  <img src={RespiratoryImg}  alt={RespiratoryImg} />
+                </span>
+                <h3 className="text-gray-500 text-[16px]">Respiratory Rate</h3>
+
+                <p className="text-2xl font-bold text-black">20 bpm</p>
+                <span className="text-sm text-black">Normal</span>
               </div>
-              <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <div className="bg-[#FFE6E9] rounded-2xl shadow p-[12px] ">
+                <span className="bg-white">
+                  <img src={TemperatureImg} alt={TemperatureImg} />
+                </span>
                 <h3 className="text-gray-500">Temperature</h3>
-                <p className="text-2xl font-bold">98.6°F</p>
-                <span className="text-sm text-green-500">Normal</span>
+                <p className="text-2xl font-bold text-black">98.6°F</p>
+                <span className="text-sm text-black">Normal</span>
               </div>
-              <div className="bg-white rounded-2xl shadow p-6 text-center">
+              <div className="bg-white rounded-2xl shadow p-6">
+                <span>
+                  <img src={HeartBPMImg} alt={HeartBPMImg} />
+                </span>
                 <h3 className="text-gray-500">Heart Rate</h3>
-                <p className="text-2xl font-bold">78 bpm</p>
-                <span className="text-sm text-red-500">Lower than average</span>
+                <p className="text-2xl font-bold text-black">78 bpm</p>
+                <span className="text-sm text-black">Lower than average</span>
               </div>
-            </section>
+              </section>
 
             {/* Diagnostic List */}
             {/* <section className="bg-white rounded-2xl shadow p-6">

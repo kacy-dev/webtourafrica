@@ -1,42 +1,18 @@
 // 
 
 import { useEffect, useState } from "react";
-import { Calendar, User, Phone, Heart, Shield } from "lucide-react";
+import { Calendar, User, Phone, Heart, ShieldCheck } from "lucide-react";
+import { getJessica } from "../services/api";
+import type { Patient } from "../services/api";
 
-type Patient = {
-  id: string;
-  name: string;
-  avatar: string;
-  dob: string;
-  gender: string;
-  contact: string;
-  emergencyContact: string;
-  insurance: string;
-};
-
-async function fetchPatient(): Promise<Patient> {
-
-  return {
-    id: "1",
-    name: "Jessica Taylor",
-    avatar: "https://i.pravatar.cc/150?img=4",
-    dob: "August 23, 1996",
-    gender: "Female",
-    contact: "(415) 555-1234",
-    emergencyContact: "(415) 555-5678",
-    insurance: "Sunrise Health Assurance",
-  };
-}
 
 export default function PatientProfile() {
   const [patient, setPatient] = useState<Patient | null>(null);
 
   useEffect(() => {
-    const loadPatient = async () => {
-      const data = await fetchPatient();
-      setPatient(data);
-    };
-    loadPatient();
+
+    getJessica().then(setPatient).catch(console.error);
+
   }, []);
 
   if (!patient) {
@@ -50,7 +26,7 @@ export default function PatientProfile() {
   return (
     <div className="w-80 bg-white rounded-2xl shadow p-6 flex flex-col items-center mt-6">
       <img
-        src={patient.avatar}
+        src={patient.profile_picture}
         alt={patient.name}
         className="w-[200px] h-[200px] rounded-full object-cover mb-4"
       />
@@ -59,42 +35,53 @@ export default function PatientProfile() {
 
       <div className="w-full mt-5 space-y-4 text-sm text-gray-700">
         <div className="flex items-start gap-3">
-          <Calendar className="text-teal-500" size={18} />
+          <span className="bg-gray-100 p-3 rounded-full">
+            <Calendar className="" size={18} />
+
+          </span>
           <div>
             <p className="font-medium">Date Of Birth</p>
-            <p className="text-gray-500">{patient.dob}</p>
+            <p className="text-black text-[13px] ">{patient.date_of_birth}</p>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <User className="text-teal-500" size={18} />
+          <span className="bg-gray-100 p-3 rounded-full">
+            <User className="" size={18} />
+          </span>
           <div>
             <p className="font-medium">Gender</p>
-            <p className="text-gray-500">{patient.gender}</p>
+            <p className="text-black text-[13px]">{patient.gender}</p>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <Phone className="text-teal-500" size={18} />
+          <span className="bg-gray-100 p-3 rounded-full">
+            <Phone className="" size={18} />
+          </span>
           <div>
             <p className="font-medium">Contact Info.</p>
-            <p className="text-gray-500">{patient.contact}</p>
+            <p className="text-black text-[13px]">{patient.phone_number}</p>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <Heart className="text-teal-500" size={18} />
+          <span className="bg-gray-100 p-3 rounded-full">
+            <Heart className="" size={18} />
+          </span>
           <div>
             <p className="font-medium">Emergency Contacts</p>
-            <p className="text-gray-500">{patient.emergencyContact}</p>
+            <p className="text-black text-[13px]">{patient.emergency_contact}</p>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <Shield className="text-teal-500" size={18} />
+          <span className="bg-gray-100 p-3 rounded-full">
+            <ShieldCheck className="" size={18} />
+          </span>
           <div>
             <p className="font-medium">Insurance Provider</p>
-            <p className="text-gray-500">{patient.insurance}</p>
+            <p className="text-black text-[13px]">{patient.insurance_type}</p>
           </div>
         </div>
       </div>
