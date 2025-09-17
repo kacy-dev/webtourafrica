@@ -1,9 +1,7 @@
-
 import { useEffect, useState } from "react";
 import { Calendar, User, Phone, Heart, ShieldCheck } from "lucide-react";
 import { getJessica } from "../services/api";
 import type { Patient } from "../services/api";
-
 
 export default function PatientProfile() {
   const [patient, setPatient] = useState<Patient | null>(null);
@@ -29,14 +27,11 @@ export default function PatientProfile() {
         alt={patient.name}
         className="w-[200px] h-[200px] rounded-full object-cover mb-4"
       />
-
       <h2 className="text-lg font-bold text-[#072635]">{patient.name}</h2>
-
       <div className="w-full mt-5 space-y-4 text-sm text-gray-700">
         <div className="flex items-start gap-3">
           <span className="bg-gray-100 p-3 rounded-full">
             <Calendar className="" size={18} />
-
           </span>
           <div>
             <p className="font-medium">Date Of Birth</p>
@@ -63,7 +58,6 @@ export default function PatientProfile() {
             <p className="text-black text-[13px]">{patient.phone_number}</p>
           </div>
         </div>
-
         <div className="flex items-start gap-3">
           <span className="bg-gray-100 p-3 rounded-full">
             <Heart className="" size={18} />
@@ -73,7 +67,6 @@ export default function PatientProfile() {
             <p className="text-black text-[13px]">{patient.emergency_contact}</p>
           </div>
         </div>
-
         <div className="flex items-start gap-3">
           <span className="bg-gray-100 p-3 rounded-full">
             <ShieldCheck className="" size={18} />
@@ -84,7 +77,6 @@ export default function PatientProfile() {
           </div>
         </div>
       </div>
-
       <button className="mt-6 w-[220px] h-[41px] bg-teal-500 text-black text-[11px] py-2 rounded-full">
         Show All Information
       </button>
