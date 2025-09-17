@@ -45,8 +45,6 @@ export default function DiagnosisHistory() {
     <div className="bg-white rounded-2xl">
       <h2 className="text-lg font-bold text-[#072635] mb-4">Diagnosis History</h2>
       <div className="flex items-start bg-[#F4F0FE] gap-3 p-3 rounded-xl">
-        
-        {/* Left: Chart */}
         <div className="flex-1 bg-[#F4F0FE]">
           <p className="text-gray-500 text-sm mb-4 flex justify-between ">
             <span className="text-black text-bold">Blood Pressure</span>

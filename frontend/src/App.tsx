@@ -49,27 +49,14 @@ function App() {
   return (
     <>
       <div className="min-h-screen bg-gray-50 w-full py-4 px-4">
-
-         
-
           <TopBar />
-        
         <div className="flex">
-
           <PatientSidebar />
-
-          {/* Main Content */}
-          <main className="flex-1 p-4 overflow-y-auto">
-            {/* Diagnosis History */}
-
+          <div className="flex-1 p-4 overflow-y-auto">
             <div className="bg-white p-4 rounded-xl">
-
-
             <div className="mb-4">
                 <DiagnosisHistory />
-
             </div>
-
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-[#E0F3FA] rounded-2xl shadow p-[12px]">
                 <span className="bg-white">
@@ -98,83 +85,53 @@ function App() {
               </div>
             </section>
             </div>
-            {/* <section className="bg-white rounded-2xl shadow p-6 mt-4">
-                <h2 className="font-semibold text-lg mb-4">Diagnostic List</h2>
+            <div className="bg-white rounded-2xl shadow p-6 mt-6">
+                <h2 className="font-semibold text-lg mb-4 text-[#072635]">
+                    Diagnostic List
+                </h2>
                 <table className="w-full text-sm">
-                    <thead className="bg-[#F6F7F8] rounded-full">
+                    <thead className="bg-[#F6F7F8]">
                     <tr>
-                        <th className="text-left p-2 text-[#072635]">Problem/Diagnosis</th>
+                        <th className="text-left p-2 text-[#072635] rounded-l-full">Problem/Diagnosis</th>
                         <th className="text-left p-2 text-[#072635]">Description</th>
-                        <th className="text-left p-2 text-[#072635]">Status</th>
+                        <th className="text-left p-2 text-[#072635] rounded-r-full">Status</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr className="border-b">
-                        <td className="p-2 text-[#072635]">{patient.diagnostic_list?.name}</td>
-                        <td className="p-2 text-[#072635]">High Systolic</td>
-                        <td className="p-2 text-red-500">Critical</td>
-                    </tr>
-                    <tr>
-                        <td className="p-2">Heart Rate</td>
-                        <td className="p-2">Below Average</td>
-                        <td className="p-2 text-yellow-500">Warning</td>
-                    </tr>
+                    {list.length > 0 ? (
+                        list.map((item, idx) => (
+                        <tr key={idx} className="border-b last:border-0">
+                            <td className="p-3 text-[#072635] text-[14px]">{item.name}</td>
+                            <td className="p-2 text-[#072635] text-[14px]">{item.description}</td>
+                            <td
+                            className={`p-2 font-medium text-[14px] ${
+                                item.status.toLowerCase().includes("critical")
+                                ? "text-red-500"
+                                : item.status.toLowerCase().includes("warning")
+                                ? "text-yellow-500"
+                                : "text-green-600"
+                            }`}
+                            >
+                            {item.status}
+                            </td>
+                        </tr>
+                        ))
+                    ) : (
+                        <tr>
+                        <td colSpan={3} className="p-4 text-center text-gray-400">
+                            No diagnostics available
+                        </td>
+                        </tr>
+                    )}
                     </tbody>
                 </table>
-            </section> */}
-
-              <div className="bg-white rounded-2xl shadow p-6 mt-6">
-      <h2 className="font-semibold text-lg mb-4 text-[#072635]">
-        Diagnostic List
-      </h2>
-
-      <table className="w-full text-sm">
-        <thead className="bg-[#F6F7F8]">
-          <tr>
-            <th className="text-left p-2 text-[#072635] rounded-l-full">Problem/Diagnosis</th>
-            <th className="text-left p-2 text-[#072635]">Description</th>
-            <th className="text-left p-2 text-[#072635] rounded-r-full">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {list.length > 0 ? (
-            list.map((item, idx) => (
-              <tr key={idx} className="border-b last:border-0">
-                <td className="p-3 text-[#072635] text-[14px]">{item.name}</td>
-                <td className="p-2 text-[#072635] text-[14px]">{item.description}</td>
-                <td
-                  className={`p-2 font-medium text-[14px] ${
-                    item.status.toLowerCase().includes("critical")
-                      ? "text-red-500"
-                      : item.status.toLowerCase().includes("warning")
-                      ? "text-yellow-500"
-                      : "text-green-600"
-                  }`}
-                >
-                  {item.status}
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan={3} className="p-4 text-center text-gray-400">
-                No diagnostics available
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
-          {/* </div> */}
-          </main>
-          <div>
-            <PatientProfile />
-            <LabResults />
-
+            </div>
           </div>
-
+            <div>
+                <PatientProfile />
+                <LabResults />
+            </div>
         </div>
-
       </div>
     </>
   );
