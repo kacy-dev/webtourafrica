@@ -17,23 +17,17 @@ const patients = [
 export default function PatientSidebar() {
   return (
     <aside className="w-72 bg-white flex flex-col mt-4 rounded-lg">
-      
-
        <div className="h-auto w-72 bg-white flex flex-col mt-6 rounded-lg">
-
       <div className="flex items-center justify-between px-4 py-3 mt-3">
         <h2 className="text-lg font-semibold text-black">Patients</h2>
         <Search size={18} className="text-gray-500 cursor-pointer" />
       </div>
-
-      
       <div className="flex-1 overflow-y-auto">
         {patients.map((p) => (
           <div
             key={p.id}
             className={`flex items-center justify-between px-4 py-3 hover:bg-gray-50 cursor-pointer`}
           >
-           
             <div className="flex items-center gap-3">
               <img src={p.img} alt={p.name} className="w-10 h-10 rounded-full" />
               <div className="leading-tight">
@@ -48,16 +42,10 @@ export default function PatientSidebar() {
                 <p className="text-[#707070] text-xs">{p.gender}, {p.age}</p>
               </div>
             </div>
-
-
             <MoreHorizontal size={18} className="text-gray-400 cursor-pointer" />
-           
           </div>
         ))}
       </div>
-
-     
-
       </div>
     </aside>
   );
