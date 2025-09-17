@@ -1,8 +1,7 @@
-// src/components/LabResults.tsx
 import React, { useEffect, useState } from "react";
 import { getJessica } from "../services/api";
 import type { Patient } from "../services/api";
-import { Download } from "lucide-react"; // download icon
+import { Download } from "lucide-react"; 
 
 export default function LabResults() {
   const [results, setResults] = useState<string[]>([]);
@@ -23,7 +22,6 @@ export default function LabResults() {
   return (
     <div className="bg-white rounded-2xl shadow p-4 mt-6 max-h-[207px] overflow-y-auto">
       <h2 className="font-semibold text-lg text-[#072635]">Lab Results</h2>
-
       <ul className="space-y-1">
         {results.length > 0 ? (
           results.map((item, idx) => (
