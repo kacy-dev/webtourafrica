@@ -1,4 +1,3 @@
-// 
 
 import { useEffect, useState } from "react";
 import { Calendar, User, Phone, Heart, ShieldCheck } from "lucide-react";
@@ -24,7 +23,7 @@ export default function PatientProfile() {
   }
 
   return (
-    <div className="w-80 bg-white rounded-2xl shadow p-6 flex flex-col items-center mt-6">
+    <div className="w-80 bg-white rounded-2xl shadow p-6 flex flex-col items-center mt-4">
       <img
         src={patient.profile_picture}
         alt={patient.name}

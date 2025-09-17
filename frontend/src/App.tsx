@@ -13,6 +13,7 @@ import "./App.css";
 import TopBar from "./components/topbar";
 import PatientSidebar from "./components/patientSidebar";
 import DiagnosisHistory from "./components/diagnosisHistory";
+import LabResults from "./components/labResults";
 import { getJessica } from "./services/api";
 import type { Patient } from "./services/api";
 import PatientProfile from "./components/patientProfile";
@@ -139,10 +140,10 @@ function App() {
           {list.length > 0 ? (
             list.map((item, idx) => (
               <tr key={idx} className="border-b last:border-0">
-                <td className="p-2 text-[#072635] text-xs">{item.name}</td>
-                <td className="p-2 text-[#072635] text-xs">{item.description}</td>
+                <td className="p-3 text-[#072635] text-[14px]">{item.name}</td>
+                <td className="p-2 text-[#072635] text-[14px]">{item.description}</td>
                 <td
-                  className={`p-2 font-medium text-xs ${
+                  className={`p-2 font-medium text-[14px] ${
                     item.status.toLowerCase().includes("critical")
                       ? "text-red-500"
                       : item.status.toLowerCase().includes("warning")
@@ -168,7 +169,7 @@ function App() {
           </main>
           <div>
             <PatientProfile />
-
+            <LabResults />
 
           </div>
 

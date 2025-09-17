@@ -16,7 +16,7 @@ const patients = [
 
 export default function PatientSidebar() {
   return (
-    <aside className="w-72 bg-white flex flex-col mt-6 rounded-lg">
+    <aside className="w-72 bg-white flex flex-col mt-4 rounded-lg">
       
 
        <div className="h-auto w-72 bg-white flex flex-col mt-6 rounded-lg">
