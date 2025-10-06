@@ -1,5 +1,6 @@
 import "./App.css";
 import TopBar from "./components/topbar";
+import HomeSection from "./components/HomeSection";
 
 
 function App() {
@@ -7,8 +8,9 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 w-full py-4 px-4">
+      <div className="">
           {/* <TopBar /> */}
+          <HomeSection />
         
       </div>
     </>
