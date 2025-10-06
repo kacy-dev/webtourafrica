@@ -5,6 +5,38 @@ import FooterSection from "./FooterSection";
 import RippleGrid from "./ui/RippleGrid";
 
 export default function HomeSection() {
+
+   const items = [
+    {
+      label: "About",
+      bgColor: "#0D0716",
+      textColor: "#fff",
+      links: [
+        { label: "Company", ariaLabel: "About Company" },
+        { label: "Careers", ariaLabel: "About Careers" }
+      ]
+    },
+    {
+      label: "Projects", 
+      bgColor: "#170D27",
+      textColor: "#fff",
+      links: [
+        { label: "Featured", ariaLabel: "Featured Projects" },
+        { label: "Case Studies", ariaLabel: "Project Case Studies" }
+      ]
+    },
+    {
+      label: "Contact",
+      bgColor: "#271E37", 
+      textColor: "#fff",
+      links: [
+        { label: "Email", ariaLabel: "Email us" },
+        { label: "Twitter", ariaLabel: "Twitter" },
+        { label: "LinkedIn", ariaLabel: "LinkedIn" }
+      ]
+    }
+  ];
+  
   return (
     <>
       <section className="relative w-full h-screen overflow-hidden bg-black">
@@ -20,6 +52,16 @@ export default function HomeSection() {
         />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-white bg-black/50">
+           <CardNav
+      logo={logo}
+      logoAlt="Company Logo"
+      items={items}
+      baseColor="#fff"
+      menuColor="#000"
+      buttonBgColor="#111"
+      buttonTextColor="#fff"
+      ease="power3.out"
+    />
           <h1 className="text-5xl font-bold">Welcome to Our Hero Section</h1>
           <p className="mt-4 text-lg opacity-80">
             Ripple grid background stays within 100vh.
