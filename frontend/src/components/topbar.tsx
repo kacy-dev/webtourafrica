@@ -7,10 +7,6 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          {/* <div className="w-7 h-7 bg-gradient-to-tr from-teal-500 to-blue-500 rounded-md"></div> */}
-          {/* <h1 className="text-xl font-bold text-gray-800"> */}
-            {/* Tech.<span className="text-teal-600">Care</span> */}
-
             <img src={Logo} className="h-10" alt="logo" />
           {/* </h1> */}
         </div>
