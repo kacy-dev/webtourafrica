@@ -134,7 +134,7 @@ const CardNav = ({
 
   return (
     <div
-      className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
+      className={`card-nav-container absolute left-1/2  bg-[#030016]/95 rounded-xl -translate-x-1/2 w-[90%] max-w-[1200px] z-[99] top-[1.1em] md:top-[1em] ${className}`}
     >
       <nav
         ref={navRef}
@@ -163,13 +163,15 @@ const CardNav = ({
           </div>
 
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-            <img src={logo} alt={logoAlt} className="logo h-[28px]" />
+            {/* <img src={logo} alt={logoAlt} className="logo h-[28px]" /> */}
+            <h1 className='text-primary font-extrabold'>WEBTOUR</h1>
           </div>
 
           <button
             type="button"
-            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 h-full font-medium cursor-pointer transition-colors duration-300"
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] justify-center items-center px-4 h-full font-medium cursor-pointer transition-colors duration-300 bg-[#0b0018] text-sm outline outline-1 outline-offset-1 outline-[#7E1CFC]"
+            // style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            
           >
             Get Started
           </button>

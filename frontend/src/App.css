@@ -20,7 +20,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #072635; 
+  background-color: #000; 
   border-radius: 9999px;
   max-height: 150px;
 }
@@ -45,3 +45,6 @@ body {
   }
 }
 
+.ripple-bg {
+  background-color: #000;
+}

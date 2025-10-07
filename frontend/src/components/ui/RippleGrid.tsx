@@ -3,7 +3,7 @@ import { Renderer, Program, Triangle, Mesh } from 'ogl';
 
 const RippleGrid = ({
   enableRainbow = false,
-  gridColor = '#ffffff',
+  gridColor = '#7E1CFC',
   rippleIntensity = 0.05,
   gridSize = 10.0,
   gridThickness = 15.0,
@@ -268,7 +268,7 @@ void main() {
     mouseInteractionRadius
   ]);
 
-  return <div ref={containerRef} className=" absolute inset-0 w-full h-full overflow-hidden [&_canvas]:absolute [&_canvas]:inset-0 [&_canvas]:w-full [&_canvas]:h-full" />;
+  return <div ref={containerRef} className="bg-transparent absolute inset-0 w-full h-full overflow-hidden [&_canvas]:absolute [&_canvas]:inset-0 [&_canvas]:w-full [&_canvas]:h-full" />;
   // return <div ref={containerRef} className="w-full h-full relative overflow-hidden  [&_canvas]:block" />;
 };
 
