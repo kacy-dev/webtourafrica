@@ -11,9 +11,10 @@ import FaqsSection from "./FaqsSection";
 import FooterSection from "./FooterSection";
 import RippleGrid from "./ui/RippleGrid";
 import CardNav from "./ui/CardNav";
+import NavbarController from "../components/ui/NavbarController";
 import "../App.css";
 import bgCover from "../assets/img/bg-cover.jpg";
-import bgCove from "../assets/img/bg-cove.jpg";
+// import bgCove from "../assets/img/bg-cove.jpg";
 
 export default function HomeSection() {
   const items = [
@@ -92,7 +93,7 @@ export default function HomeSection() {
   return (
     <>
       <section className="relative w-full h-screen overflow-hidden">
-        <div className="ripple-bg">
+        <div className="ripple-bg absolute inset-0 -z-10">
           <RippleGrid
             enableRainbow={false}
             gridColor="#7E1CFC"
@@ -117,6 +118,7 @@ export default function HomeSection() {
               buttonTextColor="#fff"
               ease="power3.out"
             />
+           {/* <NavbarController items={navItems} /> */}
           </div>
 
           <div className="flex flex-col lg:flex-row gap-5">
@@ -138,7 +140,7 @@ export default function HomeSection() {
                   Powering Africa’s
                 </b>{" "}
                 Digital Growth — One Digital Solution at a Time
-              </h1>
+              </h1> 
               <p className="mt-4 text-md opacity-90 px-4 lg:pl-20 max-w-[800px]">
                 WebTour Africa helps businesses shine online with modern web
                 design, app development, SEO, and Google Business setup. Your
@@ -180,21 +182,23 @@ export default function HomeSection() {
                 </div>
               </div>
             </div>
+          
+
           </div>
         </div>
       </section>
-      <div>
-        <section className="relative flex flex-col gap-20 justify-center items-center py-10 lg:py-20 bg-dark text-white overflow-hidden">
-          <div className="text-center space-y-3">
+      {/* <div className="" > */}
+        <section className="relative -z-10 flex flex-col gap-20 justify-center items-center py-10 lg:py-20 bg-dark text-white overflow-hidden">
+          <div className="text-center space-y-2">
             <span className="text-xs text-primary outline outline-1 outline-primary rounded-full py-1 px-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
               Features
             </span>
-            <h1 className="text-xl font-extrabold">
+            <h1 className="lg:text-5xl text-3xl font-bold max-w-[550px]" style={{lineHeight: 1.2}}>
               {" "}
-              From Idea to Launch — We Handle Everything
+              From Idea to Launch We <b className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Handle Everything</b>
             </h1>
 
-            <span className="text-primary text-sm">
+            <span className="text-light opacity-50 text-sm">
               Let’s bring your digital dream to life, step by step.
             </span>
           </div>
@@ -215,7 +219,7 @@ export default function HomeSection() {
           </svg>
 
           <div className="relative z-10 flex flex-wrap justify-between gap-x-16 gap-y-16 w-full px-6 max-w-6xl">
-            {/* Top 1 */}
+           
             <div className="flex flex-col items-center space-y-1 translate-y-[-30px] md:translate-y-[-50px]  bg-dark/50 backdrop-blur-sm px-2 py-2 rounded-[100%] max-w-[200px] h-[200px] border border-1 border-primary/90 outline outline-1 outline-primary/90 outline-offset-2">
               <div className="bg-primary p-4 rounded-full shadow-lg">
                 <MessageSquareWarning size={24} color={"#030016"} />
@@ -227,7 +231,6 @@ export default function HomeSection() {
               </span>
             </div>
 
-            {/* Bottom 2 */}
             <div className="flex flex-col items-center right-0 space-y-2 translate-y-[30px] md:translate-y-[50px]">
               <div className="bg-primary p-4 rounded-full shadow-lg">
                 <DoorOpen size={24} />
@@ -235,7 +238,7 @@ export default function HomeSection() {
               <span className="text-sm mt-2">We Build</span>
             </div>
 
-            <div className="flex flex-col items-center space-y-1 translate-y-[-30px] md:translate-y-[-50px]  bg-dark /50 backdrop-blur-sm px-2 py-2 rounded-[100%] max-w-[200px] h-[200px] border border-1 border-primary/90 outline outline-1 outline-primary/90 outline-offset-2">
+            <div className="flex flex-col items-center space-y-1 translate-y-[-30px] md:translate-y-[-50px] bg-dark /50 backdrop-blur-sm px-2 py-2 rounded-[100%] max-w-[200px] h-[200px] border border-1 border-primary/90 outline outline-1 outline-primary/90 outline-offset-2">
               <div className="bg-primary p-4 rounded-full shadow-lg">
                 <CodeIcon size={24} color={"#030016"} />
               </div>
@@ -254,7 +257,7 @@ export default function HomeSection() {
             </div>
           </div>
         </section>
-      </div>
+      {/* </div> */}
       {/* <section className="py-16 bg-white text-gray-800">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4 text-primary">
@@ -298,16 +301,6 @@ export default function HomeSection() {
           </div>
         </div>
       </section> */}
-
-
-      {/* =============================================
-        MINI ABOUT SECTION
-      =================================================*/}
-
-      
-      {/* =============================================
-        MINI ABOUT SECTION
-      =================================================*/}
     </>
   );
 }
