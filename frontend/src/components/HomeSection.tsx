@@ -18,6 +18,7 @@ import NavbarController from "../components/ui/NavbarController";
 import "../App.css";
 import bgCover from "../assets/img/bg-cover.jpg";
 import abImg from "../assets/img/ab-img.jpg";
+import whyUs from "../assets/img/why-us.jpg";
 // import bgCove from "../assets/img/bg-cove.jpg";
 
 export default function HomeSection() {
@@ -266,7 +267,7 @@ export default function HomeSection() {
       </section>
 
       <section>
-        <div className="flex flex-col lg:grid lg:grid-cols-2 justify-center px-4 py-20 lg:px-40 md:px-20 sm:px-7 ">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 justify-center px-4 py-40 lg:px-40 md:px-20 sm:px-7 ">
           <div className="relative">
             <span className="-z-10 absolute -left-20 -top-20">
               <RocketIcon size={200} color="#cccc" />
@@ -281,32 +282,40 @@ export default function HomeSection() {
                 <div className="relative flex flex-col gap-2">
                   <div className="bg-dark ring-1 ring-accent flex gap-2 rounded-full pl-1 pr-2 py-1">
                     <span className="bg-light h-5 w-5 rounded-full flex justify-center items-center">
-                      <CheckCheckIcon size={13}  color="#FD3EED" />
+                      <CheckCheckIcon size={13} color="#FD3EED" />
                     </span>
-                    <span className="text-light text-xs ">Quick Responses to Request</span>
+                    <span className="text-light text-xs ">
+                      Empowering African entrepreneurs
+                    </span>
                   </div>
                   <div className="bg-dark ring-1 ring-accent flex gap-2 rounded-full pl-1 pr-2 py-1 relative left-10">
                     <span className="bg-light h-5 w-5 rounded-full flex justify-center items-center">
-                      <CheckCheckIcon size={13}  color="#FD3EED" />
+                      <CheckCheckIcon size={13} color="#FD3EED" />
                     </span>
-                    <span className="text-light text-xs ">Quick Responses to Request</span>
+                    <span className="text-light text-xs ">
+                      Support You Can Trust
+                    </span>
                   </div>
                   <div className="bg-dark ring-1 ring-accent flex gap-2 rounded-full pl-1 pr-2 py-1">
                     <span className="bg-light h-5 w-5 rounded-full flex justify-center items-center">
-                      <CheckCheckIcon size={13}  color="#FD3EED" />
+                      <CheckCheckIcon size={13} color="#FD3EED" />
                     </span>
-                    <span className="text-light text-xs ">Quick Responses to Request</span>
+                    <span className="text-light text-xs ">
+                      We grow with your brand
+                    </span>
                   </div>
-                  
                 </div>
               </div>
             </div>
           </div>
           <div>
             <span className="text-xs text-right text-primary outline outline-1 outline-primary rounded-full py-1 px-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-              Features
+              About WebtourAfrica
             </span>
-            <h2 className="text-5xl font-extrabold max-w-[400px] mb-4 text-dark" style={{lineHeight: 1.3}}>
+            <h2
+              className="text-5xl font-extrabold max-w-[400px] mb-4 text-dark"
+              style={{ lineHeight: 1.3 }}
+            >
               About{" "}
               <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                 WebTour
@@ -338,6 +347,131 @@ export default function HomeSection() {
             </div>
           </div>
         </div>
+        <div className="px-20 pb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 justify-between">
+            <h2
+              className="text-4xl font-extrabold mb-4 text-dark"
+              style={{ lineHeight: 1.3 }}
+            >
+              Why Webtour For{" "}
+              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                Business Growth
+              </span>{" "}
+            </h2>
+            <p className="">
+              At{" "}
+              <span className="font-semibold text-black">WebTour Africa</span>,
+              we help small businesses and brands grow online by building
+              modern, search-friendly websites that attract real customers. Our
+              mission is simple — to make it easy for you to launch, grow, and
+              be seen.
+            </p>
+          </div>
+          <div className="flex flex-col lg:flex-row md:flex-row sm:flex-col justify-between mt-4 gap-5">
+            <div className="bg-gray-100 px-3 py-2 rounded-xl">
+              <h2>More Insights</h2>
+              <div className="flex justify-between items-center px-2 bg-dark py-3 rounded-sm mt-2 w-[350px] my-5">
+                <span className="text-light text-sm">Business Analysis</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#fff" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center px-2 bg-light py-3 rounded-md shadow-sm mt-2 w-[350px] my-5">
+                <span className="text-dark text-sm">Strategy Planning</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#030016" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center px-2 bg-light py-3 rounded-md shadow-sm mt-2 w-[350px] my-5">
+                <span className="text-dark text-sm">Business Consulting</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#030016" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center px-2 bg-light py-3 rounded-md shadow-sm mt-2 w-[350px] my-5">
+                <span className="text-dark text-sm">Marketing Strategy</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#030016" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center px-2 bg-light py-3 rounded-md shadow-sm mt-2 w-[350px] my-5">
+                <span className="text-dark text-sm">Experince Design</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#030016" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center px-2 bg-light py-3 rounded-md shadow-sm mt-2 w-[350px] my-5">
+                <span className="text-dark text-sm">Audit & Evaluation</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#030016" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center px-2 bg-light py-3 rounded-md shadow-sm mt-2 w-[350px] my-5">
+                <span className="text-dark text-sm">Leads Generation</span>
+                <span>
+                  <CheckCheckIcon size={15} color="#030016" />
+                </span>
+              </div>
+            </div>
+            <div>
+              <img
+                src={whyUs}
+                className="lg:w-[750px] lg:h-[500px] w-[100%] h-[100%] rounded-sm brightness-90"
+                alt="why us image"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="px-4 lg:px-20 md:px-10 sm:px-4">
+          <div className="flex justify-between items">
+            <span className="text-xs text-right text-primary outline outline-1 outline-primary rounded-full py-1 px-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              We Provide Amazing Web Solutions
+            </span>
+            <a href="/services" className="text-xs outline outline-1 outline-dark flex items-center px-2 py-1 rounded-full">Service Details <ArrowRight size={13} /></a>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl inset-5">
+              <span>01.</span>
+              <span className="text-sm">Web Development</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl">
+              <span>02.</span>
+              <span className="text-sm">Application Development</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl">
+              <span>03.</span>
+              <span className="text-sm">Design & Branding</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl">
+              <span>04.</span>
+              <span>Frontend Development</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl">
+              <span>05.</span>
+              <span className="text-sm">Backend Development</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl">
+              <span>06.</span>
+              <span className="text-sm">MVP Development</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl">
+              <span>07.</span>
+              <span className="text-sm">Search Engine Optimization</span>
+            </div>
+            <StarIcon color="#cccc" />
+            <div className="flex gap-2 outline outline-1 outline-dark/10 px-2 py-4 rounded-md shadow-xl ">
+              <span>08.</span>
+              <span className="text-sm">Google Business Profile Setup</span>
+            </div>
+          </div>
+        </div>
+       
       </section>
       {/* </div> */}
       {/* <section className="py-16 bg-white text-gray-800">
