@@ -25,7 +25,7 @@ import FaqsSection from "./FaqsSection";
 import FooterSection from "./FooterSection";
 import RippleGrid from "./ui/RippleGrid";
 import CardNav from "./ui/CardNav";
-import NavbarController from "../components/ui/NavbarController";
+// import NavbarController from "../components/ui/NavbarController";
 import PricingCards from "./ui/PricingCards";
 import "../App.css";
 import bgCover from "../assets/img/bg-cover.jpg";
@@ -43,8 +43,8 @@ export default function HomeSection() {
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [
-        { label: "Company", ariaLabel: "About Company" },
-        { label: "Careers", ariaLabel: "About Careers" },
+        { label: "Company", href: "#about", ariaLabel: "About Company" }
+        // { label: "Careers", ariaLabel: "About Careers" },
       ],
     },
     {
@@ -52,8 +52,9 @@ export default function HomeSection() {
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
-        { label: "Featured", ariaLabel: "Featured Projects" },
-        { label: "Case Studies", ariaLabel: "Project Case Studies" },
+        { label: "Featured", href: "#projects", ariaLabel: "Featured Projects" }
+
+        // { label: "Case Studies", ariaLabel: "Project Case Studies" },
       ],
     },
     {
@@ -61,9 +62,9 @@ export default function HomeSection() {
       bgColor: "#271E37",
       textColor: "#fff",
       links: [
-        { label: "Email", ariaLabel: "Email us" },
-        { label: "Twitter", ariaLabel: "Twitter" },
-        { label: "LinkedIn", ariaLabel: "LinkedIn" },
+        { label: "Email", href: "#contact", ariaLabel: "Email us" }
+        // { label: "Twitter", ariaLabel: "Twitter" },
+        // { label: "LinkedIn", ariaLabel: "LinkedIn" },
       ],
     },
   ];
