@@ -48,3 +48,13 @@ body {
 .ripple-bg {
   /* background-color: #000; */
 }
+
+.card-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 0.5) var(--my, 0.5),
+    rgba(126, 28, 252, 0.2),
+    transparent 80%);
+  pointer-events: none;
+}
