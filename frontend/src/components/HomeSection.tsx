@@ -209,7 +209,7 @@ export default function HomeSection() {
               baseColor=""   
               menuColor="#030016"
               // buttonBgColor="#111"
-              buttonTextColor="#fff"
+              // buttonTextColor="#fff"
               ease="power3.out"
             />
             {/* <NavbarController items={navItems} /> */}
