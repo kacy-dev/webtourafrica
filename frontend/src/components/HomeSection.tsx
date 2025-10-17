@@ -200,7 +200,7 @@ export default function HomeSection() {
           />
         </div>
 
-        <div className="absolute inset-0 flex flex-col justify-center md:justify-end lg:justify-end pt-32 lg:pt-0 lg:pb-20 z-50 text-white ">
+        <div className="absolute inset-0 flex flex-col justify-center md:justify-end lg:justify-end pt-[100px] lg:pt-0 lg:pb-20 z-50 text-white ">
           <div className="fixed top-0 w-full" style={{ zIndex: 999 }}>
             <CardNav
               logo={""}
@@ -210,7 +210,7 @@ export default function HomeSection() {
               menuColor="#030016"
               // buttonBgColor="#111"
               // buttonTextColor="#fff"
-              ease="power3.out"
+              // ease="power3.out"
             />
             {/* <NavbarController items={navItems} /> */}
           </div>
