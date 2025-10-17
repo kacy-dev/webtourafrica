@@ -125,7 +125,7 @@ export default function HomeSection() {
           />
         </div>
 
-        <div className="absolute inset-0 flex flex-col justify-center md:justify-end lg:justify-end pt-[100px] lg:pt-0 lg:pb-20 z-50 text-white ">
+        <div className="absolute inset-0 flex flex-col bg-dark justify-center md:justify-end lg:justify-end pt-[100px] lg:pt-0 lg:pb-20 z-50 text-white ">
           <div className="fixed top-0 w-full" style={{ zIndex: 999 }}>
             <CardNav
               logo={""}
@@ -152,7 +152,7 @@ export default function HomeSection() {
                 </a>
               </div>
               <h1
-                className="lg:text-5xl text-3xl font-bold lg:max-w-[1000px] px-4 lg:pl-20 text-dark"
+                className="lg:text-5xl text-3xl  font-bold lg:max-w-[1000px] px-4 lg:pl-20 text-light"
                 style={{ lineHeight: 1.2 }}
               >
                 <b className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
@@ -160,7 +160,7 @@ export default function HomeSection() {
                 </b>{" "}
                 Digital Growth — One Digital Solution at a Time
               </h1>
-              <p className="mt-4 text-sm text-dark lg:text-md opacity-90 px-4 py-3 lg:pt-0 lg:pl-20 max-w-[800px]">
+              <p className="mt-4 text-sm text-light lg:text-md opacity-90 px-4 py-3 lg:pt-0 lg:pl-20 max-w-[800px]">
                 WebTour Africa helps businesses shine online with modern web
                 design, app development, SEO, and Google Business setup. Your
                 digital success starts here.

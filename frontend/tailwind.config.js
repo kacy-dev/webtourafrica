@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         primary: "#7E1CFC", // Blue
-        accent: "#FD3EED",  // Teal
+        accent: "#7E1CFC",  // Teal
+        // accent: "#FD3EED",  // Teal
         dark: "#030016",    // Navy black (for backgrounds)
         light: "#F8FAFC",   // Light gray/white background
         grayText: "#64748B", // For secondary text
