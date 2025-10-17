@@ -9,18 +9,14 @@ import {
   CodeIcon,
   StarIcon,
   CheckCircleIcon,
-  CheckCheckIcon,
   ArrowUpRightIcon,
-  Star,
-  Quote 
 } from "lucide-react";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import Navbar from "./Navbar";
-import AboutSection from "./AboutSection";
+// import Navbar from "./Navbar";
+// import AboutSection from "./AboutSection";
 import FaqsSection from "./FaqsSection";
 import FooterSection from "./FooterSection";
 import TestimonialSection from "./TestimonialSection";
@@ -71,36 +67,7 @@ export default function HomeSection() {
     },
   ];
 
-  const list = [
-    "i am a good boy",
-    "i am a good boy",
-    "i am a good boy",
-    "i am a good boy",
-    "i am a good boy",
-  ];
 
-  const devList = [
-    {
-      id: 1,
-      name: "Victor",
-      role: "Full-stack Developer",
-    },
-    {
-      id: 2,
-      name: "Chukwuma",
-      role: "Front-end Developer",
-    },
-    {
-      id: 3,
-      name: "Paschal",
-      role: "Developer",
-    },
-    {
-      id: 4,
-      name: "Jasper",
-      role: "Full-stack Developer",
-    },
-  ];
 
   const filteredList = devList.filter(
     (dl) => dl.role === "Full-stack Developer"
