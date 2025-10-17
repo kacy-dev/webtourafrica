@@ -264,9 +264,9 @@ const CardNav: React.FC<CardNavProps> = ({
         style={{ backgroundColor: baseColor }}
       >
         {/* Top bar */}
-        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
+        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex  items-center justify-between p-2 pl-[1.1rem] z-[2]">
           <div
-            className="hamburger-menu group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px]"
+            className="hamburger-menu group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none"
             onClick={toggleMenu}
             style={{ color: menuColor }}
           >
@@ -288,7 +288,7 @@ const CardNav: React.FC<CardNavProps> = ({
             />
           </div>
 
-          <div className="logo-container flex items-center">
+          <div className="logo-container flex items-center order-1 md:order-none">
             {logo ? (
               <img src={logo} alt={logoAlt} className="h-6" />
             ) : (
@@ -298,7 +298,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
           <button
             type="button"
-            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-lg justify-center items-center px-4 h-full font-medium cursor-pointer transition-colors duration-300 bg-[#0b0018] text-sm outline outline-1 outline-offset-1 outline-[#7E1CFC]"
+            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-lg justify-center items-center px-4 py-2 font-medium cursor-pointer transition-colors duration-300 bg-primary text-sm outline outline-1 outline-offset-1 outline-[#7E1CFC]"
           >
             Get Started
           </button>

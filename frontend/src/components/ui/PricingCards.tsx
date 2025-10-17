@@ -1064,7 +1064,7 @@ export default function PricingSection() {
             Features
           </span>
           <h1
-            className="lg:text-5xl text-3xl max-w-2xl font-bold text-dark"
+            className="text-3xl md:text-4xl font-bold my-2 max-w-2xl font-bold text-dark"
             style={{ lineHeight: 1.2 }}
           >
             {" "}
@@ -1108,14 +1108,14 @@ export default function PricingSection() {
           </select>
         </div>
 
-        <div className="flex gap-2 lg:flex-row md:flex-row bg-gray-200 rounded-lg justify-center mb-8">
+        <div className="flex gap-2 lg:flex-row md:flex-row bg-white border border-1 border-dark/10 rounded-lg justify-center mb-8">
           {services.map((service) => (
             <button
               key={service}
               className={`px-4 py-3 text-[11px] lg:text-sm  font-semibold w-full rounded-lg ${
                 activeService === service
                   ? "bg-primary text-white outline outline-1  outline-primary outline-offset-2"
-                  : "bg-gray-200 text-gray-800"
+                  : "bg-white text-gray-800"
               }`}
               onClick={() => handleServiceClick(service)}
             >

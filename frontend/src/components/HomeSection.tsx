@@ -23,6 +23,7 @@ import Navbar from "./Navbar";
 import AboutSection from "./AboutSection";
 import FaqsSection from "./FaqsSection";
 import FooterSection from "./FooterSection";
+import CTASection from "./ui/CTASection";
 import RippleGrid from "./ui/RippleGrid";
 import CardNav from "./ui/CardNav";
 // import NavbarController from "../components/ui/NavbarController";
@@ -205,9 +206,9 @@ export default function HomeSection() {
               logo={""}
               logoAlt="Company Logo"
               items={items}
-              baseColor=""
+              baseColor=""   
               menuColor="#030016"
-              buttonBgColor="#111"
+              // buttonBgColor="#111"
               buttonTextColor="#fff"
               ease="power3.out"
             />
@@ -242,13 +243,13 @@ export default function HomeSection() {
               <div className=" lg:pl-20 px-4 mt-5 inline-flex gap-5">
                 <a
                   href=""
-                  className="text-s text-light text-sm outline outline-1 outline-primary hover:bg-primary duration-500 outline-offset-2 px-3 py-2 rounded-md"
+                  className="text-sm outline outline-1 outline-primary outline-offset-2 bg-primary hover:bg-transparent hover:text-dark duration-500  text-light px-3 py-2 rounded-md"
                 >
                   Get Started
                 </a>
                 <a
                   href=""
-                  className="text-sm outline outline-1 outline-primary outline-offset-2 bg-primary hover:bg-transparent duration-500  text-light px-3 py-2 rounded-md"
+                  className="text-sm outline outline-1 outline-primary outline-offset-2 bg-primary hover:bg-transparent hover:text-dark duration-500  text-light px-3 py-2 rounded-md"
                 >
                   Book a Free Consultation
                 </a>
@@ -260,7 +261,7 @@ export default function HomeSection() {
                 alt=""
                 className=" w-full h-full object-cover lg:[clip-path:polygon(20%_0%,100%_0%,100%_100%,0%_100%)] rounded-md"
               />
-              <span className="absolute w-full h-full bg-gradient-to-l from-transparent to-[#030016]/95 top-0 rounded-md lg:[clip-path:polygon(20%_0%,100%_0%,100%_100%,0%_100%)]"></span>
+              <span className="absolute w-full h-full bg-gradient-to-l from-transparent to-dark/95 top-0 rounded-md lg:[clip-path:polygon(20%_0%,100%_0%,100%_100%,0%_100%)]"></span>
               <div className="absolute bottom-5 left-0 right-0 lg:left-10 flex justify-center items-center gap-2">
                 <div className="bg-primary py-2 px-2 rounded-full">
                   <MessageSquareWarning size={18} />
@@ -279,13 +280,13 @@ export default function HomeSection() {
         </div>
       </section>
       {/* <div className="" > */}
-      <section className="relative -z-10 flex flex-col gap-20 justify-center items-center py-10 lg:py-20 bg-light text-white overflow-hidden">
+      <section className="relative flex flex-col gap-20 justify-center items-center py-10 lg:py-20 bg-light text-white overflow-hidden">
         <div className="text-center space-y-2">
           <span className="text-xs text-primary outline outline-1 outline-primary rounded-full py-1 px-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
             Features
           </span>
           <h1
-            className="lg:text-5xl text-3xl font-bold max-w-[550px] text-dark"
+            className="text-3xl md:text-4xl font-bold max-w-[550px] text-dark"
             style={{ lineHeight: 1.2 }}
           >
             {" "}
@@ -349,7 +350,7 @@ export default function HomeSection() {
             <div className="bg-primary p-4 rounded-full shadow-lg">
               <RocketIcon size={24} />
             </div>
-            <span className="text-sm mt-2">Grow</span>
+            <span className="text-sm mt-2 text-dark">Grow</span>
           </div>
         </div>
       </section>
@@ -401,7 +402,7 @@ export default function HomeSection() {
               About WebtourAfrica
             </span>
             <h2
-              className="text-4xl text-right lg:text-left lg:text-5xl font-extrabold max-w-[400px] mb-4 text-dark"
+              className="text-right lg:text-left text-3xl md:text-4xl font-bold mt-2 max-w-[350px] mb-4 text-dark"
               style={{ lineHeight: 1.3 }}
             >
               About{" "}
@@ -577,7 +578,7 @@ export default function HomeSection() {
             <span className="text-xs uppercase tracking-wide text-primary outline outline-1 outline-primary rounded-full py-1 px-4">
               Our Projects
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold mt-4 text-dark">
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 text-dark">
               See What We’ve{" "}
               <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                 Built
@@ -605,7 +606,7 @@ export default function HomeSection() {
               <div className="shadow-xl px-2 py-1 rounded-md bg-light relative">
                 <h3 className="font-bold mb-3">{project.title}</h3>
                 <p className="text-sm mb-3">{project.description}</p>
-                <a href="" className="text-sm bg-primary flex items-center text-light gap-1 px-2 py-1 max-w-[115px] rounded-md">View Details <ArrowRight size={13} /></a>
+                <a href="" className="text-xs bg-primary flex items-center text-light gap-1 px-2 py-1 max-w-[100px] rounded-md">View Details <ArrowRight size={13} /></a>
                 <a href="" className="absolute right-0 top-0 bg-transparent outline outline-1 outline-primary px-1 py-1 flex items-center rounded-full"><ArrowUpRightIcon size={12} color="#000" /></a>
               </div>
             </div>
@@ -691,7 +692,18 @@ export default function HomeSection() {
         </Swiper>
       </div>
     </section>
+
+    <section>
+      <FaqsSection />
+    </section>
       
+    <section>
+      <CTASection />
+    </section>
+
+    <section>
+      <FooterSection />
+    </section>
     </>
   );
 }
