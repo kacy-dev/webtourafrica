@@ -8,7 +8,7 @@ import {
   RocketIcon,
   CodeIcon,
   StarIcon,
-  CheckCircleIcon,
+  CheckCheckIcon,
   ArrowUpRightIcon,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -67,18 +67,6 @@ export default function HomeSection() {
     },
   ];
 
-
-
-  const filteredList = devList.filter(
-    (dl) => dl.role === "Full-stack Developer"
-  );
-
-  const devL = filteredList.map((dev) => (
-    <li key={dev.id}>
-      <p>{dev.name}</p>
-      <p>{dev.role}</p>
-    </li>
-  ));
 
   const projects = [
     {

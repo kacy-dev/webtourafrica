@@ -1,7 +1,7 @@
 // import * as React from "react";
 import { useRoutes, BrowserRouter } from "react-router-dom"
 import "./App.css";
-import TopBar from "./components/topbar";
+// import TopBar from "./components/topbar";
 import HomeSection from "./components/HomeSection";
 import AboutSection from "./components/AboutSection";
 import ServiceSection from "./components/ServiceSection";
